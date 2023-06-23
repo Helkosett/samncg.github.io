@@ -3,11 +3,10 @@ var Time;
 var TimeZone;
 
 $(async function() {
-    await $.getJSON("https://api.ipify.org?format=jsonp&callback=?",
-      function(json) {
-        IP = json.ip;
-      }
-    );
+    await $.getJSON('https://ipinfo.io/json', function(data) {
+        const api = JSON.parse(JSON.stringify(data, null, 2));
+        IP = api.ip;
+    });
 
     const month = ["January","February","March","April","May","June","July","August","September","October","November","December"];
     const date = new Date();
